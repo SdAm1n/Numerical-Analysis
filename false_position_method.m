@@ -1,4 +1,4 @@
-function root = false_position_method()
+function func = false_position_method()
   a = -1;
   b = -3;
   max_iter = 10;
@@ -9,7 +9,7 @@ function root = false_position_method()
   %fa = a ^ 3 - 2 * a - 5;
   %fb = b ^ 3 - 2 * b - 5;
   if (fa * fb > 0)
-    return;
+    error('Error');
   endif
 
   iter = 0;
@@ -19,7 +19,7 @@ function root = false_position_method()
     fc = f(c);
     if (fc == 0)
       root = c;
-    else if(fa * fb < 0)
+    else if(fa * fc < 0)
       b = c;
       fb = fc;
     else
@@ -32,5 +32,4 @@ function root = false_position_method()
   root = (a + b) / 2;
   fprintf('Iter: %d = Root: %f\n',iter,root);
 end
-
 
